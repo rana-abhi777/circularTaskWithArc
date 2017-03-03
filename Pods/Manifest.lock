@@ -1,0 +1,12 @@
+PODS:
+  - InfiniteCollectionView (1.3.0)
+
+DEPENDENCIES:
+  - InfiniteCollectionView
+
+SPEC CHECKSUMS:
+  InfiniteCollectionView: bf5658e2f4033ef1f9cb871fc628dbda2c9858f0
+
+PODFILE CHECKSUM: 9535bd77d944d0e25605976c0f5313f057760740
+
+COCOAPODS: 1.2.0
