@@ -60,8 +60,10 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-//        let cell = collectionView.cellForItem(at: indexPath)
+        let cell = collectionView.cellForItem(at: indexPath)
         index = Int(indexPath.item)
+        
+        
         collectionView.reloadData()
     }
     
