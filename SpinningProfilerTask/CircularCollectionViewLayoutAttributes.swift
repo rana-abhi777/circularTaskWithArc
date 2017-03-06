@@ -43,7 +43,7 @@ class CircularCollectionViewLayout: UICollectionViewLayout {
     }
     
     
-    var radius: CGFloat = 385 {
+    var radius: CGFloat = 375 {
         didSet {
             invalidateLayout()
         }
@@ -79,7 +79,7 @@ class CircularCollectionViewLayout: UICollectionViewLayout {
             
             attributes.size = self.itemSize
             
-            attributes.center = CGPoint(x: centerX, y: 100)
+            attributes.center = CGPoint(x: centerX, y: 130)
             
             
             attributes.angle = self.angle + self.anglePerItem*CGFloat(i)

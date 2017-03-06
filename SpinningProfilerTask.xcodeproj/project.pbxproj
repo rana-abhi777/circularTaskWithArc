@@ -16,6 +16,7 @@
 		1DA841D41E6836DF00624864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA841D31E6836DF00624864 /* Assets.xcassets */; };
 		1DA841D71E6836DF00624864 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA841D51E6836DF00624864 /* LaunchScreen.storyboard */; };
 		1DA841E51E68486E00624864 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA841E41E68486E00624864 /* MainCollectionViewCell.swift */; };
+		1DB8FFEE1E6D6B9D005391F7 /* circularArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8FFED1E6D6B9D005391F7 /* circularArc.swift */; };
 		AC72BFB18FF13BC4E3355AC0 /* Pods_SpinningProfilerTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB71D8080A216A0C97322CE /* Pods_SpinningProfilerTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		1DA841D61E6836DF00624864 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DA841D81E6836DF00624864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DA841E41E68486E00624864 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		1DB8FFED1E6D6B9D005391F7 /* circularArc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = circularArc.swift; sourceTree = "<group>"; };
 		46B6463AC199EE8731A12FE7 /* Pods-SpinningProfilerTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinningProfilerTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpinningProfilerTask/Pods-SpinningProfilerTask.debug.xcconfig"; sourceTree = "<group>"; };
 		7DB71D8080A216A0C97322CE /* Pods_SpinningProfilerTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpinningProfilerTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA974BD504A48A2CC7D1E9B4 /* Pods-SpinningProfilerTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinningProfilerTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpinningProfilerTask/Pods-SpinningProfilerTask.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				1DA841E41E68486E00624864 /* MainCollectionViewCell.swift */,
 				1D1D70101E693B4A00762060 /* CircularCollectionViewLayoutAttributes.swift */,
 				1D1D70121E69587C00762060 /* commonClass.swift */,
+				1DB8FFED1E6D6B9D005391F7 /* circularArc.swift */,
 			);
 			path = SpinningProfilerTask;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DB8FFEE1E6D6B9D005391F7 /* circularArc.swift in Sources */,
 				1DA841CC1E6836DF00624864 /* ViewController.swift in Sources */,
 				1DA841CA1E6836DF00624864 /* AppDelegate.swift in Sources */,
 				1DA841E51E68486E00624864 /* MainCollectionViewCell.swift in Sources */,

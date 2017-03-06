@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var mutlipler: Int?
+    var index:Int?
     public static var heightCollectionView: Float?
     static var widthCollectionView: Float?
     let imageArray:[UIImage] = [#imageLiteral(resourceName: "profilePic0"),
@@ -24,8 +25,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-}
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,25 +47,21 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
         let imageName = imageArray[Int(indexPath.item) % 7]
         cellForSectionNames.btnProfilePic.setImage(imageName, for: .normal)
         print(indexPath.item)
-        
+        if index == indexPath.item {
+            cellForSectionNames.layer.borderWidth = 10
+            cellForSectionNames.layer.borderColor = UIColor.purple.cgColor
+
+        }
+        else {
+            cellForSectionNames.layer.borderWidth = 3
+            cellForSectionNames.layer.borderColor = UIColor.white.cgColor
+        }
         return cellForSectionNames
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        let cell = collectionView.cellForItem(at: indexPath)
-        let index = Int(indexPath.item)
-        print(index)
-        for count in 0...(imageArray.count - 1) {
-            if (count == index) {
-                cell?.layer.borderWidth = 10
-                cell?.layer.borderColor = UIColor.purple.cgColor
-            }
-            else if (count != index){
-                cell?.layer.borderWidth = 3
-                cell?.layer.borderColor = UIColor.white.cgColor
-            }
-
-        }
+//        let cell = collectionView.cellForItem(at: indexPath)
+        index = Int(indexPath.item)
         collectionView.reloadData()
     }
     
