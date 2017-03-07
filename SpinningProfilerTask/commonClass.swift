@@ -15,4 +15,8 @@ class commonClass {
         commonClass.heightCollectionView = height
         commonClass.widhtCollectionView = width
     }
+    
+    class func indexPassedFromViewController(index: IndexPath.Element) {
+        let indexSelected = index
+    }
 }

@@ -8,9 +8,11 @@
 
 import UIKit
 
+
+
 class CircularCollectionViewLayoutAttributes: UICollectionViewLayoutAttributes {
     // 1
-    var anchorPoint = CGPoint(x: 0.5, y: 0.5)
+    var anchorPoint = CGPoint(x: 10, y: 10)
     var angle: CGFloat = 0 {
         // 2
         didSet {
@@ -31,6 +33,8 @@ class CircularCollectionViewLayoutAttributes: UICollectionViewLayoutAttributes {
 
 class CircularCollectionViewLayout: UICollectionViewLayout {
     let itemSize = CGSize(width: 100, height: 100)
+    
+    
     
     var angleAtExtreme: CGFloat {
         return collectionView!.numberOfItems(inSection: 0) > 0 ? -CGFloat(collectionView!.numberOfItems(inSection: 0) - 1) * anglePerItem : 0
@@ -92,65 +96,70 @@ class CircularCollectionViewLayout: UICollectionViewLayout {
     
     override func layoutAttributesForItem(at indexPath: IndexPath)
         -> UICollectionViewLayoutAttributes? {
+            print("\(Int(indexPath.row))") // doesn't work and prints nothing at all
             return attributesList[indexPath.row]
+            
+    }
+    func buttonClicked(sender: UIButton) {
+        print("button is pressed")
     }
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
-//    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
-//        let pointToOffset = CGPoint(x: itemSize.height * 3 + 0, y: itemSize.width * 3 + 0)
-//        var point = CGPoint(x: 1, y: 2)
-//        point = targetContentOffset(forProposedContentOffset: pointToOffset)
-//        print("\(point.x) \(point.y)")
-//        return point
-//    }
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        
-        if let cv = self.collectionView {
-            
-            let cvBounds = cv.bounds
-            let halfHeight = cvBounds.size.height * 0.5
-            let proposedContentOffsetCenterY = proposedContentOffset.y + halfHeight
-            
-            if let attributesForVisibleCells = self.layoutAttributesForElements(in: cvBounds) {
-                
-                var candidateAttributes : UICollectionViewLayoutAttributes?
-                for attributes in attributesForVisibleCells {
-                    
-                    // == Skip comparison with non-cell items (headers and footers) == //
-                    if attributes.representedElementCategory != UICollectionElementCategory.cell {
-                        continue
-                    }
-                    
-                    if (attributes.center.y == 0) || (attributes.center.y > (cv.contentOffset.y + halfHeight) && velocity.y < 0) {
-                        continue
-                    }
-                    
-                    // == First time in the loop == //
-                    guard let candAttrs = candidateAttributes else {
-                        candidateAttributes = attributes
-                        continue
-                    }
-                    
-                    let a = attributes.center.y - proposedContentOffsetCenterY
-                    let b = candAttrs.center.y - proposedContentOffsetCenterY
-                    
-                    if fabsf(Float(a)) < fabsf(Float(b)) {
-                        candidateAttributes = attributes;
-                    }
-                }
-                
-                if(proposedContentOffset.y == -(cv.contentInset.top)) {
-                    return proposedContentOffset
-                }
-                
-                return CGPoint(x: proposedContentOffset.x, y: floor(candidateAttributes!.center.y - halfHeight))
-            }
-        }
-        
-        // fallback
-        return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+        let pointNew = CGPoint(x: itemSize.width + , y: )
     }
+//    func tappedActive(sender: UIButton) {
+//        let index = collectionView.
+//    }
+    
+//    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+//        
+//        if let cv = self.collectionView {
+//            
+//            let cvBounds = cv.bounds
+//            let halfHeight = cvBounds.size.height * 0.5
+//            let proposedContentOffsetCenterY = proposedContentOffset.y + halfHeight
+//            
+//            if let attributesForVisibleCells = self.layoutAttributesForElements(in: cvBounds) {
+//                
+//                var candidateAttributes : UICollectionViewLayoutAttributes?
+//                for attributes in attributesForVisibleCells {
+//                    
+//                    // == Skip comparison with non-cell items (headers and footers) == //
+//                    if attributes.representedElementCategory != UICollectionElementCategory.cell {
+//                        continue
+//                    }
+//                    
+//                    if (attributes.center.y == 0) || (attributes.center.y > (cv.contentOffset.y + halfHeight) && velocity.y < 0) {
+//                        continue
+//                    }
+//                    
+//                    // == First time in the loop == //
+//                    guard let candAttrs = candidateAttributes else {
+//                        candidateAttributes = attributes
+//                        continue
+//                    }
+//                    
+//                    let a = attributes.center.y - proposedContentOffsetCenterY
+//                    let b = candAttrs.center.y - proposedContentOffsetCenterY
+//                    
+//                    if fabsf(Float(a)) < fabsf(Float(b)) {
+//                        candidateAttributes = attributes;
+//                    }
+//                }
+//                
+//                if(proposedContentOffset.y == -(cv.contentInset.top)) {
+//                    return proposedContentOffset
+//                }
+//                
+//                return CGPoint(x: proposedContentOffset.x, y: floor(candidateAttributes!.center.y - halfHeight))
+//            }
+//        }
+//        
+//        // fallback
+//        return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
+//    }
     
     
 }

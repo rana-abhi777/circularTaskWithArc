@@ -10,6 +10,8 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
     
+    
+    
     @IBOutlet weak var btnProfilePic: UIButton!
     
 //    override func draw(_ rect: CGRect) { //Your code should go here.

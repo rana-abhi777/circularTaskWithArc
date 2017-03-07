@@ -38,7 +38,6 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //print(imageArray.count)
         return imageArray.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -46,10 +45,11 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
         
         let imageName = imageArray[Int(indexPath.item) % 7]
         cellForSectionNames.btnProfilePic.setImage(imageName, for: .normal)
-        print(indexPath.item)
+//        print(indexPath.item)
         if index == indexPath.item {
             cellForSectionNames.layer.borderWidth = 10
-            cellForSectionNames.layer.borderColor = UIColor.purple.cgColor
+            cellForSectionNames.layer.borderColor = UIColor.darkGray.cgColor
+            //cellForSectionNames.target(forAction: , withSender: self)
 
         }
         else {
@@ -60,10 +60,9 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        let cell = collectionView.cellForItem(at: indexPath)
+//        let cell = collectionView.cellForItem(at: indexPath)
         index = Int(indexPath.item)
-        
-        
+        commonClass.indexPassedFromViewController(index: index ?? 1)
         collectionView.reloadData()
     }
     
